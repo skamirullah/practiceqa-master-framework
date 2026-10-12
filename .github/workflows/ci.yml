@@ -1,0 +1,32 @@
+name: Web, API and mobile tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # Each layer is its own job, so they run side by side and a failure names the layer.
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        layer: [api, web, mobile]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: maven
+      # The mobile job uses phone emulation here; see the README for real devices.
+      - run: mvn -B test -Dsuite=testng-${{ matrix.layer }}.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.layer }}-results
+          path: |
+            target/surefire-reports/
+            target/allure-results/

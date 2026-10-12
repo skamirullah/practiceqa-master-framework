@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- API tests. No browser is started. -->
+<suite name="Nova Shop: api" parallel="classes" thread-count="2">
+  <listeners>
+    <listener class-name="com.practiceqa.novashop.listeners.TestListener"/>
+  </listeners>
+  <test name="api">
+    <packages>
+      <package name="com.practiceqa.novashop.tests.api"/>
+    </packages>
+  </test>
+</suite>
