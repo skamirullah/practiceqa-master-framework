@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <!-- Desktop browser tests, plus the hybrid tests that compare the UI with the API. -->
-<suite name="Nova Shop: web" parallel="methods" thread-count="3">
+<suite name="Nova Shop - web" parallel="methods" thread-count="3">
   <listeners>
     <listener class-name="com.practiceqa.novashop.listeners.TestListener"/>
   </listeners>

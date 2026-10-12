@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <!-- Everything: API first (fastest feedback), then web, then mobile. -->
-<suite name="Nova Shop: all layers">
+<suite name="Nova Shop - all layers">
   <suite-files>
     <suite-file path="testng-api.xml"/>
     <suite-file path="testng-web.xml"/>
